@@ -1,17 +1,13 @@
 # Store the credentials used for validation
 correct_username = "admin"
 correct_password = "1234"
-
 # Track the number of login attempts made by the user
 attempts = 0
-
 # Define the maximum number of login attempts allowed
 max_attempts = 3
-
-# Track whether the user successfully logged in
 login_successful = False
 
-while True:
+while attempts < max_attempts:
     # Collect login credentials from the user
     username = input("Enter username: ")
     password = input("Enter password: ")
@@ -25,14 +21,10 @@ while True:
         print("Login successful.")
         login_successful = True
         break
-
-    # Lock the account after the maximum number of attempts
-    elif attempts >= max_attempts:
-        print("Invalid credentials.")
-        print(f"Maximum allowed attempts: {max_attempts}.")
-        print("Account locked.")
-        break
-
-    # Allow another attempt while attempts remain
     else:
         print("Invalid credentials.")
+
+# Lock the account when the maximum number of attempts is reached
+if not login_successful:
+    print(f"Maximum allowed attempts: {max_attempts}.")
+    print("Account locked.")
