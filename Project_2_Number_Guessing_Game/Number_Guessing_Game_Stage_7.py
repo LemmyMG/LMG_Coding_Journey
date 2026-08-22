@@ -4,7 +4,7 @@ def play_game(starting_attempts):
     # Outer loop controls overall game sessions (replayability)
     while True:
         secret_number = random.randint(1, 10)
-
+        
         # Initialize attempt limit using the function argument
         attempts_left = starting_attempts
 
@@ -36,7 +36,7 @@ def play_game(starting_attempts):
 
         # Replay validation loop: forces user to input a valid response before moving on
         while True:
-            answer = input("\nPlay another round? (yes/no): ").replace(" ", "").strip().lower()
+            answer = input("\nPlay another round? (yes/no): ").replace(" ","").strip().lower()
 
             if answer in ("yes", "no"):
                 break
